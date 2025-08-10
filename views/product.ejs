@@ -1,0 +1,59 @@
+<%- include('partials/header') %>
+<main class="container">
+  <section class="product-details">
+    <section class="product-page">
+      <div class="gallery">
+        <button class="carousel-btn prev" aria-label="Previous image">
+          &#10094;
+        </button>
+
+        <% product.images.forEach((img, i) => { %>
+        <img
+          class="gallery-img <%= i === 0 ? 'active' : '' %>"
+          src="<%= img %>"
+          alt="<%= product.title %> image <%= i + 1 %>"
+          data-index="<%= i %>"
+        />
+        <% }) %>
+
+        <button class="carousel-btn next" aria-label="Next image">
+          &#10095;
+        </button>
+      </div>
+      <div class="product-info">
+        <h2><%= product.title %></h2>
+        <p class="price">₾<%= product.price %></p>
+        <p class="desc"><%= product.description %></p>
+
+        <% if (product.sizes && product.sizes.length) { %>
+        <div class="sizes">
+          <label>ზომები:</label>
+          <div class="sizes-list">
+            <% product.sizes.forEach(s => { %>
+            <button class="size-btn"><%= s %></button>
+            <% }) %>
+          </div>
+        </div>
+        <% } %>
+
+        <div class="order-block">
+          <p class="order-text">
+            ამ ნივთის შესაკვეთად, მოგვწერეთ ინსტაგრამზე 👇
+          </p>
+          <a
+            class="btn btn-order"
+            href="<%= INSTAGRAM_URL %>"
+            target="_blank"
+            rel="noopener"
+            >DM on Instagram</a
+          >
+          <small class="muted"
+            >რჩევა: დამუშავების დაჩქარებისთვის, თქვენს პირად შეტყობინებაში
+            მიუთითეთ პროდუქტის დასახელება, ზომა და ფერი.</small
+          >
+        </div>
+      </div>
+    </section>
+  </section>
+</main>
+<%- include('partials/footer') %>

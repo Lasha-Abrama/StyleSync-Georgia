@@ -1,0 +1,51 @@
+<%- include('partials/header') %>
+<main>
+  <section class="about-page fade-in">
+    <h2>StyleSync Georgia-ს შესახებ</h2>
+    <p>
+      StyleSync დაარსდა 2024 წლის ბოლოს ორი სტუდენტის მიერ. ჩვენ ვცდილობთ
+      მომხმარებელს შევთავაზოთ უნიკალური, ხარისხიანი პროდუქტი სტილისა და
+      გემოვნების შესაბამისად. შეკვეთები მუშავდება Instagram-ის პირადი
+      შეტყობინების საშუალებით — სწრაფად და პერსონალურად.
+    </p>
+
+    <div class="contact-section">
+      <h3>კონტაქტი</h3>
+      <p>
+        თუ გაქვთ შეკითხვები ან გსურთ თანამშრომლობა, ჩვენი კარი თქვენთვის
+        ყოველთვის ღიაა!
+      </p>
+
+      <form class="contact-form" action="/contact" method="POST">
+        <label for="name">სახელი</label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          placeholder="შეიყვანეთ სახელი"
+          required
+        />
+
+        <label for="email">ელ-ფოსტა</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="შეიყვანეთ ელ-ფოსტა"
+          required
+        />
+
+        <label for="message">შეტყობინება</label>
+        <textarea
+          id="message"
+          name="message"
+          placeholder="დაწერეთ თქვენი შეტყობინება..."
+          required
+        ></textarea>
+
+        <button type="submit" class="btn">შეტყობინების გაგზავნა</button>
+      </form>
+    </div>
+  </section>
+</main>
+<%- include('partials/footer') %>

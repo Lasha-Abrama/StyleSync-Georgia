@@ -1,0 +1,301 @@
+[
+  {
+    "id": 1,
+    "title": "Carhartt Detroit Jacket",
+    "category": "jackets",
+    "slug": "carhartt-detroit-jacket",
+    "price": 149,
+    "description": "✨ ერთ-ერთი ყველაზე დახვეწილი და გამორჩეული ქურთუკი✨",
+    "sizes": ["M", "L", "XL"],
+    "images": [
+      "/images/Carhartt_Detroit_Jacket1.png",
+      "/images/Carhartt_Detroit_Jacket2.png",
+      "/images/Carhartt_Detroit_Jacket3.png",
+      "/images/Carhartt_Detroit_Jacket4.png",
+      "/images/Carhartt_Detroit_Jacket5.png",
+      "/images/Carhartt_Detroit_Jacket6.png"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Stüssy Ripstop Jacket",
+    "category": "jackets",
+    "slug": "stussy-ripstop-jacket",
+    "price": 139,
+    "description": "მსუბუქი, თბილი და იდეალური მათთვის, ვისაც სურს შეინარჩუნოს სითბო და ამავდროულად იმიჯი ცივ ზამთარში ❄️ 🔥",
+    "sizes": ["S", "M", "L", "XL"],
+    "images": [
+      "/images/Stussy_Puffer1.png",
+      "/images/Stussy_Puffer2.png",
+      "/images/Stussy_Puffer3.png"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Corteiz Windbreaker",
+    "category": "jackets",
+    "slug": "corteiz-windbreaker",
+    "price": 99,
+    "description": "მსუბუქი, წყალგამძლე ქურთუკი მაქსიმალური კომფორტისა და დაცვისთვის ნებისმიერ ამინდში🌬️ ",
+    "sizes": ["M", "L", "XL", "2XL"],
+    "images": [
+      "/images/Corteiz_Windbreaker1.JPG",
+      "/images/Corteiz_Windbreaker2.JPG",
+      "/images/Corteiz_Windbreaker3.JPG",
+      "/images/Corteiz_Windbreaker4.JPG",
+      "/images/Corteiz_Windbreaker5.JPG",
+      "/images/Corteiz_Windbreaker6.JPG",
+      "/images/Corteiz_Windbreaker7.JPG",
+      "/images/Corteiz_Windbreaker8.JPG",
+      "/images/Corteiz_Windbreaker9.JPG",
+      "/images/Corteiz_Windbreaker10.JPG"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "1998 Brazil National Home Jersey",
+    "category": "shirts",
+    "slug": "1998-brazil-national-home-jersey",
+    "price": 59,
+    "description": "🇧🇷ფეხბურთის ისტორიაში ერთ-ერთი ყველაზე ლამაზი და გამორჩეული ფორმა ლეგენდარული დიზაინით🏆✨",
+    "sizes": ["S", "M", "L", "XL"],
+    "images": [
+      "/images/Brazil_Jersey_1998.png",
+      "/images/Brazil_Jersey_1998_Logo.png",
+      "/images/Brazil_Jersey_1998_Back.png"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Carhartt Button Up",
+    "category": "shirts",
+    "slug": "carhartt-button-up",
+    "price": 74,
+    "description": "Carhartt-ის ღილებიანი პერანგი 👔 — მინიმალისტური დიზაინი ✨ და მაქსიმალური კომფორტი 😌",
+    "sizes": ["M", "L", "XL", "2XL", "3XL"],
+    "images": [
+      "/images/Carhartt_ButtonUp1.JPG",
+      "/images/Carhartt_ButtonUp2.JPG",
+      "/images/Carhartt_ButtonUp3.JPG",
+      "/images/Carhartt_ButtonUp4.JPG",
+      "/images/Carhartt_ButtonUp5.JPG",
+      "/images/Carhartt_ButtonUp6.JPG"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Carhartt WIP Always Tee",
+    "category": "shirts",
+    "slug": "carhartt-wip-always-tee",
+    "price": 49,
+    "description": "Carhartt-ის მაისური 👕 - იდეალური როგორც ყოველდღიურად ჩასაცმელად, ისე ურბანული სტილის ხაზგასასმელად 🏙️🔥 ",
+    "sizes": ["S", "M", "L", "XL"],
+    "images": [
+      "/images/Carhartt_WIP_Always1.JPG",
+      "/images/Carhartt_WIP_Always2.JPG",
+      "/images/Carhartt_WIP_Always3.JPG",
+      "/images/Carhartt_WIP_Always4.JPG"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Misprized \"Major Head Trauma\" Cap",
+    "category": "headwear",
+    "slug": "misprized-major-head-trauma-cap",
+    "price": 29,
+    "description": "🧢 უნიკალური და ყველასგან განსხვავებული დიზაინის მქონე კეპი 🔫💥",
+    "sizes": ["One size"],
+    "images": [
+      "/images/Bullet_Cap.png",
+      "/images/Bullet_Cap_Black.jpg",
+      "/images/Bullet_Cap_Back.png"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Arc'teryx Bird Hear Beanie",
+    "category": "headwear",
+    "slug": "arc'teryx-bird-head-beanie",
+    "price": 23,
+    "description": "თბილი, ელასტიური და მოდური ქუდი ზამთრის დღეებისთვის ❄️🧢",
+    "sizes": ["One size"],
+    "images": [
+      "/images/Arcteryx_Bird_Head_Beanie1.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie2.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie3.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie4.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie5.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie6.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie7.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie8.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie9.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie10.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie11.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie12.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie13.JPG",
+      "/images/Arcteryx_Bird_Head_Beanie14.JPG"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "God's Favorite Cap",
+    "category": "headwear",
+    "slug": "god's-favorite-cap",
+    "price": 24,
+    "description": "უნიკალური დიზაინის მქონე კეპი მხოლოდ ღმერთის ფავორიტებისთვის 👑🧢✨",
+    "sizes": ["One size"],
+    "images": [
+      "/images/Gods_Favorite_Cap1.JPG",
+      "/images/Gods_Favorite_Cap2.JPG",
+      "/images/Gods_Favorite_Cap3.JPG",
+      "/images/Gods_Favorite_Cap4.JPG",
+      "/images/Gods_Favorite_Cap5.JPG",
+      "/images/Gods_Favorite_Cap6.JPG"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Broken Planet Sweatshirt",
+    "category": "sweaters",
+    "slug": "broken-planet-sweatshirt",
+    "price": 79,
+    "description": "რბილი, კომფორტული და თბილი სვიტრი ყოველდღიური ჩაცმულობისთვის🌍🔥 ",
+    "sizes": ["S", "M", "L", "XL"],
+    "images": [
+      "/images/Broken_Planet_Sweatshirt1.JPG",
+      "/images/Broken_Planet_Sweatshirt2.JPG",
+      "/images/Broken_Planet_Sweatshirt3.JPG",
+      "/images/Broken_Planet_Sweatshirt4.JPG",
+      "/images/Broken_Planet_Sweatshirt5.JPG"
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Broken Planet Hoodie",
+    "category": "sweaters",
+    "slug": "broken-planet-hoodie",
+    "price": 69,
+    "description": "თბილი, კომპორტული და იმავდროულად კრეატიული დიზაინის მქონე ჰუდი 🌍🔥 ",
+    "sizes": ["S", "M", "L", "XL"],
+    "images": [
+      "/images/Broken_Planet_Hoodie1.JPG",
+      "/images/Broken_Planet_Hoodie2.JPG",
+      "/images/Broken_Planet_Hoodie3.JPG",
+      "/images/Broken_Planet_Hoodie4.JPG",
+      "/images/Broken_Planet_Hoodie5.JPG",
+      "/images/Broken_Planet_Hoodie6.JPG",
+      "/images/Broken_Planet_Hoodie7.JPG",
+      "/images/Broken_Planet_Hoodie8.JPG",
+      "/images/Broken_Planet_Hoodie9.JPG"
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Stüssy x CPFM Heart Hoodie",
+    "category": "sweaters",
+    "slug": "stussy-cpfm-heart-hoodie",
+    "price": 69,
+    "description": "ექსკლუზიური streetwear კოლაბორაცია, რომელიც აერთიანებს თამამ სტილსა და პრემიუმ ხარიხს ❤️‍🔥🖤. ",
+    "sizes": ["M", "L", "XL"],
+    "images": [
+      "/images/Stussy_CPFM_Heart_Hoodie1.JPG",
+      "/images/Stussy_CPFM_Heart_Hoodie2.JPG",
+      "/images/Stussy_CPFM_Heart_Hoodie3.JPG",
+      "/images/Stussy_CPFM_Heart_Hoodie4.JPG",
+      "/images/Stussy_CPFM_Heart_Hoodie5.JPG"
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Stüssy Stock Sweater",
+    "category": "sweaters",
+    "slug": "stussy-stock-sweater",
+    "price": 74,
+    "description": "მარტივი დიზაინის მქონე სვიტერი 🧥 - გრილი, მოდური და პრემიუმ ხარისხი ⚡✨",
+    "sizes": ["S", "M", "L", "XL"],
+    "images": [
+      "/images/Stussy_Stock_Sweater1.JPG",
+      "/images/Stussy_Stock_Sweater2.JPG",
+      "/images/Stussy_Stock_Sweater3.JPG",
+      "/images/Stussy_Stock_Sweater4.JPG",
+      "/images/Stussy_Stock_Sweater5.JPG"
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Lightning McQueen Crocs",
+    "category": "shoes",
+    "slug": "lightning-mcQueen-crocs",
+    "price": 64,
+    "description": "Lightning McQueen-ის კროქსები 🚀 — კომფორტის მოყვარული გულწრფელი ფანებისთვის 🚗 ",
+    "sizes": [
+      "36-36.5",
+      "36.5-37",
+      "37.5-38.5",
+      "39-40",
+      "40.5-41.5",
+      "41.5-42.5"
+    ],
+    "images": [
+      "/images/Mcquenn_Crocs1.JPG",
+      "/images/Mcquenn_Crocs2.JPG",
+      "/images/Mcquenn_Crocs3.JPG",
+      "/images/Mcquenn_Crocs4.JPG",
+      "/images/Mcquenn_Crocs5.JPG"
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Mike Wazowski Crocs",
+    "category": "shoes",
+    "slug": "mike-wazovski-crocs",
+    "price": 54,
+    "description": "სახალისო დიზაინის კროქსი 👁️ - გამოიჩეული კომფორტით, სიმსუბუქითა და გამძლეობით ✨👟",
+    "sizes": [
+      "30",
+      "31",
+      "32-33",
+      "34",
+      "35",
+      "36",
+      "37",
+      "38",
+      "39-40",
+      "41",
+      "42-43",
+      "44",
+      "45"
+    ],
+    "images": [
+      "/images/Mike_Wazowski_Crocs1.JPG",
+      "/images/Mike_Wazowski_Crocs2.JPG",
+      "/images/Mike_Wazowski_Crocs3.JPG",
+      "/images/Mike_Wazowski_Crocs4.JPG"
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Tow Mater Crocs",
+    "category": "shoes",
+    "slug": "tow-mater-crocs",
+    "price": 84,
+    "description": "კომფორტული Tow Mater-ის კროქსი ყველა ავტომობილის მოყვარულისთვის, იდეალურია ყოველდღიურობისთვის 🛻✨",
+    "sizes": [
+      "36-37",
+      "37-38",
+      "38-39",
+      "39-40",
+      "41-42",
+      "42-43",
+      "43-44",
+      "45-46"
+    ],
+    "images": [
+      "/images/Tow_Mater_Crocs1.JPG",
+      "/images/Tow_Mater_Crocs2.JPG",
+      "/images/Tow_Mater_Crocs3.JPG",
+      "/images/Tow_Mater_Crocs4.JPG",
+      "/images/Tow_Mater_Crocs5.JPG"
+    ]
+  }
+]

@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+<main class="container">
+  <section class="hero">
+    <div class="hero-slider">
+      <% products.forEach((product, i) => { %>
+      <div class="slide <%= i === 0 ? 'active' : '' %>">
+        <img src="<%= product.images[0] %>" alt="<%= product.title %>" />
+        <div class="slide-text">
+          <h2><%= product.title %></h2>
+          <p>₾<%= product.price %></p>
+          <a href="/product/<%= product.id %>" class="btn">ახლავე შეძენა</a>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <a href="#products" class="btn btn-scroll">კოლექციის დათვალიერება</a>
+  </section>
+
+  <section id="filter" class="filter-bar">
+    <button class="filter-btn active" data-category="all">ყველა</button>
+    <button class="filter-btn" data-category="jackets">ქურთუკები</button>
+    <button class="filter-btn" data-category="shirts">მაისურები / პერანგები</button>
+    <button class="filter-btn" data-category="sweaters">ჰუდები / სვიტერები</button>
+    <button class="filter-btn" data-category="headwear">კეპები / ქუდები</button>
+    <button class="filter-btn" data-category="shoes">ფეხსაცმელები</button>
+  </section>
+
+  <section id="products" class="products-grid">
+    <% if (products.length === 0) { %>
+    <p class="muted">No products yet. Add items to data/products.json.</p>
+    <% } %> <% products.forEach(product => { %>
+    <article class="product-card" data-category="<%= product.category %>">
+      <a href="/product/<%= product.id %>">
+        <div class="img-wrap">
+          <img
+            src="<%= product.images[0] || '/placeholder.jpg' %>"
+            alt="<%= product.title %>"
+          />
+        </div>
+        <h3><%= product.title %></h3>
+        <p class="price">₾<%= product.price %></p>
+      </a>
+    </article>
+    <% }) %>
+  </section>
+</main>
+<%- include('partials/footer') %>

@@ -1,0 +1,49 @@
+<%- include('partials/header') %>
+<main>
+  <style>
+    .confirmation-container {
+      height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: var(--brand);
+      padding: 0 1rem;
+    }
+
+    .confirmation-container h1 {
+      font-size: 2.4rem;
+      margin-bottom: 1rem;
+    }
+
+    .confirmation-container p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: var(--muted);
+    }
+
+    .btn-home {
+      background: var(--brand);
+      color: white;
+      padding: 0.8rem 1.6rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-home:hover,
+    .btn-home:focus-visible {
+      background: #4338ca;
+      outline: none;
+    }
+  </style>
+
+  <section class="confirmation-container">
+    <h1>შეტყობინება წარმატებით გაიგზავნა ✅</h1>
+    <p>მადლობა დაკავშირებისთვის! მალე გიპასუხებთ.</p>
+    <a href="/" class="btn-home">მთავარ გვერდზე დაბრუნება</a>
+  </section>
+</main>
+<%- include('partials/footer') %>

@@ -8,23 +8,40 @@
         <div class="slide-text">
           <h2><%= product.title %></h2>
           <p>₾<%= product.price %></p>
-          <a href="/product/<%= product.slug %>" class="btn"><%= t.hero.buyNow %></a>        </div>
+          <a href="/product/<%= product.slug %>" class="btn"
+            ><%= t.hero.buyNow %></a
+          >
+        </div>
       </div>
       <% }) %>
+      <button class="carousel-btn prev" id="slider-prev">&#10094;</button>
+      <button class="carousel-btn next" id="slider-next">&#10095;</button>
     </div>
+
     <a href="#filter" class="btn btn-scroll"><%= t.hero.viewCollection %></a>
   </section>
-
   <section id="filter" class="filter-bar">
     <button id="filter-toggle" class="filter-btn">ფილტრი ▾</button>
     <div id="filter-menu" class="filter-menu">
-      <button class="filter-btn active" data-category="all"><%= t.filter.all %></button>
-      <button class="filter-btn" data-category="jackets"><%= t.filter.jackets %></button>
-      <button class="filter-btn" data-category="shirts"><%= t.filter.shirts %></button>
-      <button class="filter-btn" data-category="sweaters"><%= t.filter.sweaters %></button>
-      <button class="filter-btn" data-category="headwear"><%= t.filter.headwear %></button>
-      <button class="filter-btn" data-category="shoes"><%= t.filter.shoes %></button>
-    </div>    
+      <button class="filter-btn active" data-category="all">
+        <%= t.filter.all %>
+      </button>
+      <button class="filter-btn" data-category="jackets">
+        <%= t.filter.jackets %>
+      </button>
+      <button class="filter-btn" data-category="shirts">
+        <%= t.filter.shirts %>
+      </button>
+      <button class="filter-btn" data-category="sweaters">
+        <%= t.filter.sweaters %>
+      </button>
+      <button class="filter-btn" data-category="headwear">
+        <%= t.filter.headwear %>
+      </button>
+      <button class="filter-btn" data-category="shoes">
+        <%= t.filter.shoes %>
+      </button>
+    </div>
   </section>
 
   <section id="products" class="products-flex">

@@ -15,47 +15,67 @@
     const expanded = burger.getAttribute("aria-expanded") === "true" || false;
     burger.setAttribute("aria-expanded", !expanded);
   });
-  
-  //filter
-  document.addEventListener("DOMContentLoaded", () => {
-    const filterToggle = document.getElementById("filter-toggle");
-    const filterMenu = document.getElementById("filter-menu");
-    const filterButtons = filterMenu.querySelectorAll(".filter-btn");
 
-    if (filterToggle && filterMenu) {
-      filterToggle.addEventListener("click", () => {
-        filterMenu.classList.toggle("open");
+  //countdown logic
+  const countdownEl = document.getElementById("countdown");
+  if (countdownEl) {
+    const saleDate = new Date("2025-09-01T13:30:00");
+    function updateCountdown() {
+      const now = new Date();
+      const diff = saleDate - now;
 
-        // Check if any button has .active
-        const anyActive = Array.from(filterButtons).some((btn) =>
-          btn.classList.contains("active")
-        );
-
-        // If none active, set first button active
-        if (!anyActive) {
-          filterButtons[0].classList.add("active");
-        }
-      });
-
-      filterButtons.forEach((button) => {
-        button.addEventListener("click", () => {
-          filterButtons.forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
-
-          // Update toggle button text if you want:
-          filterToggle.textContent = button.textContent + " ▾";
-
-          filterMenu.classList.remove("open");
-        });
-      });
-
-      // On page load, update toggle text from active button
-      const activeButton = filterMenu.querySelector(".filter-btn.active");
-      if (activeButton) {
-        filterToggle.textContent = activeButton.textContent + " ▾";
+      if (diff <= 0) {
+        countdownEl.textContent = "Sale is LIVE! 🔥";
+        clearInterval(intervalId);
+        return;
       }
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutes = Math.floor((diff / (1000 * 60)) % 60);
+      const seconds = Math.floor((diff / 1000) % 60);
+
+      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
-  });
+
+    updateCountdown();
+    const intervalId = setInterval(updateCountdown, 1000);
+  }
+  valId = setInterval(updateCountdown, 1000);
+
+  const filterToggle = document.getElementById("filter-toggle");
+  const filterMenu = document.getElementById("filter-menu");
+  let filter_buttons = [];
+
+  if (filterToggle && filterMenu) {
+    filter_buttons = filterMenu.querySelectorAll(".filter-btn");
+
+    filterToggle.addEventListener("click", () => {
+      filterMenu.classList.toggle("open");
+
+      // Check if any button has .active
+      const anyActive = Array.from(filter_buttons).some((btn) =>
+        btn.classList.contains("active")
+      );
+
+      // If none active, set first button active
+      if (!anyActive && filter_buttons.length > 0) {
+        filter_buttons[0].classList.add("active");
+      }
+    });
+
+    filter_buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filter_buttons.forEach((btn) => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        // Update toggle button text
+        filterToggle.textContent = button.textContent + " ▾";
+
+        filterMenu.classList.remove("open");
+      });
+    });
+  }
 
   function toggleHeart(slug, btn) {
     const favs = getFavs();
@@ -103,8 +123,8 @@
   const gallery = document.querySelector(".gallery");
   if (gallery) {
     const images = gallery.querySelectorAll(".gallery-img");
-    const prevBtn = gallery.querySelector(".carousel-btn.prev");
-    const nextBtn = gallery.querySelector(".carousel-btn.next");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
     let currentIndex = 0;
 
     function showImage(index) {
@@ -137,6 +157,7 @@
   // --- NEW: Hero slider ---
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
+  let slideInterval;
 
   function showSlide(index) {
     slides.forEach((slide, i) => {
@@ -145,36 +166,38 @@
     currentSlide = index;
   }
 
-  // Auto slide every 4 seconds
-  setInterval(() => {
-    const nextIndex = (currentSlide + 1) % slides.length;
-    showSlide(nextIndex);
-  }, 2500);
-
-  // countdown timer
-  const countdownEl = document.getElementById("countdown");
-
-  // Set your sale date/time here:
-  const saleDate = new Date("2025-09-01T13:30:00");
-
-  function updateCountdown() {
-    const now = new Date();
-    const diff = saleDate - now;
-
-    if (diff <= 0) {
-      countdownEl.textContent = "Sale is LIVE! 🔥";
-      clearInterval(intervalId);
-      return;
-    }
-
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-    const minutes = Math.floor((diff / (1000 * 60)) % 60);
-    const seconds = Math.floor((diff / 1000) % 60);
-
-    countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  // Auto slide
+  function startAutoSlide() {
+    slideInterval = setInterval(() => {
+      nextSlide();
+    }, 2500);
   }
 
-  updateCountdown();
-  const intervalId = setInterval(updateCountdown, 1000);
+  function stopAutoSlide() {
+    clearInterval(slideInterval);
+  }
+
+  function nextSlide() {
+    showSlide((currentSlide + 1) % slides.length);
+  }
+
+  function prevSlide() {
+    showSlide((currentSlide - 1 + slides.length) % slides.length);
+  }
+
+  // Event listeners for arrows
+  document.getElementById("slider-next").addEventListener("click", () => {
+    stopAutoSlide();
+    nextSlide();
+    startAutoSlide();
+  });
+
+  document.getElementById("slider-prev").addEventListener("click", () => {
+    stopAutoSlide();
+    prevSlide();
+    startAutoSlide();
+  });
+
+  // Start the slideshow
+  startAutoSlide();
 })();

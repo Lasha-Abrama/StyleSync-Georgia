@@ -3,7 +3,11 @@
   <section class="product-details">
     <section class="product-page">
       <div class="gallery">
-        <button class="carousel-btn prev" aria-label="Previous image">
+        <button
+          class="carousel-btn prev"
+          id="carousel-prev"
+          aria-label="Previous image"
+        >
           &#10094;
         </button>
 
@@ -16,7 +20,11 @@
         />
         <% }) %>
 
-        <button class="carousel-btn next" aria-label="Next image">
+        <button
+          class="carousel-btn next"
+          id="carousel-next"
+          aria-label="Next image"
+        >
           &#10095;
         </button>
       </div>
@@ -43,7 +51,8 @@
             href="<%= INSTAGRAM_URL %>"
             target="_blank"
             rel="noopener"
-          ><%= t.productPage.orderBtn %></a>
+            ><%= t.productPage.orderBtn %></a
+          >
           <small class="muted"><%= t.productPage.orderHint %></small>
         </div>
       </div>

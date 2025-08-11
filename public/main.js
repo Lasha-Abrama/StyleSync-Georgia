@@ -15,6 +15,47 @@
     const expanded = burger.getAttribute("aria-expanded") === "true" || false;
     burger.setAttribute("aria-expanded", !expanded);
   });
+  
+  //filter
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterToggle = document.getElementById("filter-toggle");
+    const filterMenu = document.getElementById("filter-menu");
+    const filterButtons = filterMenu.querySelectorAll(".filter-btn");
+
+    if (filterToggle && filterMenu) {
+      filterToggle.addEventListener("click", () => {
+        filterMenu.classList.toggle("open");
+
+        // Check if any button has .active
+        const anyActive = Array.from(filterButtons).some((btn) =>
+          btn.classList.contains("active")
+        );
+
+        // If none active, set first button active
+        if (!anyActive) {
+          filterButtons[0].classList.add("active");
+        }
+      });
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          filterButtons.forEach((btn) => btn.classList.remove("active"));
+          button.classList.add("active");
+
+          // Update toggle button text if you want:
+          filterToggle.textContent = button.textContent + " ▾";
+
+          filterMenu.classList.remove("open");
+        });
+      });
+
+      // On page load, update toggle text from active button
+      const activeButton = filterMenu.querySelector(".filter-btn.active");
+      if (activeButton) {
+        filterToggle.textContent = activeButton.textContent + " ▾";
+      }
+    }
+  });
 
   function toggleHeart(slug, btn) {
     const favs = getFavs();
@@ -37,17 +78,17 @@
   });
 
   // Filter buttons logic — place here before gallery
-  const filterButtons = document.querySelectorAll(".filter-btn");
+  const filterButtons = document.querySelectorAll("#filter-menu .filter-btn");
   const productCards = document.querySelectorAll(".product-card");
 
-  filterButtons.forEach(button => {
+  filterButtons.forEach((button) => {
     button.addEventListener("click", () => {
-      filterButtons.forEach(btn => btn.classList.remove("active"));
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
       button.classList.add("active");
 
       const category = button.dataset.category;
 
-      productCards.forEach(card => {
+      productCards.forEach((card) => {
         const prodCat = card.dataset.category;
         if (category === "all" || prodCat === category) {
           card.style.display = "";

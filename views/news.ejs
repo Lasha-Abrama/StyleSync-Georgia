@@ -1,27 +1,21 @@
 <%- include('partials/header') %>
 <main>
   <section class="news-section">
-    <h1>უახლესი ამბები და მომავალი გაყიდვები</h1>
+    <h1><%= t.newsSection.mainTitle %></h1>
 
     <div class="countdown-container">
-      <h2>შემდეგი დიდი ფასდაკლება იწყება:</h2>
-      <div id="countdown" class="countdown">Loading countdown...</div>
+      <h2><%= t.newsSection.countdown.label %></h2>
+      <div id="countdown" class="countdown"><%= t.newsSection.countdown.loading %></div>
     </div>
 
     <article class="news-article">
-      <h3>მოგესალმებათ StyleSync Georgia!</h3>
-      <p>
-        ვემზადებით ჩვენი პირველი დიდი გაყიდვისა და საინტერესო საჩუქრებისთვის.
-        დარჩით ჩვენთან და გამოგვყევით ინსტაგრამზე სიახლეებისთვის!
-      </p>
+      <h3><%= t.newsSection.articles[0].title %></h3>
+      <p><%= t.newsSection.articles[0].paragraph %></p>
     </article>
 
     <article class="news-article">
-      <h3>გათამაშება ახლოვდება!</h3>
-      <p>
-        გვსურს მადლობა გადავუხადოთ ჩვენს ადრეულ მხარდამჭერებს! თვალყური ადევნეთ
-        ვებსაიტს მომავალი საჩუქრებისა და კონკურსების შესახებ დეტალებისთვის.
-      </p>
+      <h3><%= t.newsSection.articles[1].title %></h3>
+      <p><%= t.newsSection.articles[1].paragraph %></p>
     </article>
   </section>
 </main>

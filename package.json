@@ -9,6 +9,7 @@
     "dev": "nodemon index.js"
   },
   "dependencies": {
+    "cookie-parser": "^1.4.7",
     "dotenv": "^16.6.1",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
@@ -21,5 +22,13 @@
     "nodemon": "^2.0.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lasha-Abrama/StyleSync-Georgia.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Lasha-Abrama/StyleSync-Georgia/issues"
+  },
+  "homepage": "https://github.com/Lasha-Abrama/StyleSync-Georgia#readme"
 }

@@ -1,49 +1,41 @@
 <%- include('partials/header') %>
 <main>
   <section class="about-page fade-in">
-    <h2>StyleSync Georgia-ს შესახებ</h2>
-    <p>
-      StyleSync დაარსდა 2024 წლის ბოლოს ორი სტუდენტის მიერ. ჩვენ ვცდილობთ
-      მომხმარებელს შევთავაზოთ უნიკალური, ხარისხიანი პროდუქტი სტილისა და
-      გემოვნების შესაბამისად. შეკვეთები მუშავდება Instagram-ის პირადი
-      შეტყობინების საშუალებით — სწრაფად და პერსონალურად.
-    </p>
+    <h2><%= t.aboutPage.title %></h2>
+    <p><%= t.aboutPage.description %></p>
 
     <div class="contact-section">
-      <h3>კონტაქტი</h3>
-      <p>
-        თუ გაქვთ შეკითხვები ან გსურთ თანამშრომლობა, ჩვენი კარი თქვენთვის
-        ყოველთვის ღიაა!
-      </p>
+      <h3><%= t.aboutPage.contactSection.title %></h3>
+      <p><%= t.aboutPage.contactSection.contactText %></p>
 
       <form class="contact-form" action="/contact" method="POST">
-        <label for="name">სახელი</label>
+        <label for="name"><%= t.aboutPage.contactSection.form.nameLabel %></label>
         <input
           id="name"
           name="name"
           type="text"
-          placeholder="შეიყვანეთ სახელი"
+          placeholder="<%= t.aboutPage.contactSection.form.namePlaceholder %>"
           required
         />
 
-        <label for="email">ელ-ფოსტა</label>
+        <label for="email"><%= t.aboutPage.contactSection.form.emailLabel %></label>
         <input
           id="email"
           name="email"
           type="email"
-          placeholder="შეიყვანეთ ელ-ფოსტა"
+          placeholder="<%= t.aboutPage.contactSection.form.emailPlaceholder %>"
           required
         />
 
-        <label for="message">შეტყობინება</label>
+        <label for="message"><%= t.aboutPage.contactSection.form.messageLabel %></label>
         <textarea
           id="message"
           name="message"
-          placeholder="დაწერეთ თქვენი შეტყობინება..."
+          placeholder="<%= t.aboutPage.contactSection.form.messagePlaceholder %>"
           required
         ></textarea>
 
-        <button type="submit" class="btn">შეტყობინების გაგზავნა</button>
+        <button type="submit" class="btn"><%= t.aboutPage.contactSection.form.submitBtn %></button>
       </form>
     </div>
   </section>

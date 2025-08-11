@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Home",
+    "news": "News",
+    "about": "About"
+  },
+  "hero": {
+    "buyNow": "Buy Now",
+    "viewCollection": "View Collection"
+  },
+  "filter": {
+    "all": "All",
+    "jackets": "Jackets",
+    "shirts": "Shirts",
+    "sweaters": "Hoodies / Sweaters",
+    "headwear": "Caps / Hats",
+    "shoes": "Shoes"
+  },
+  "messages": {
+    "sentTitle": "Message sent successfully ✅",
+    "sentText": "Thank you for contacting us! We will reply soon.",
+    "backHome": "Return to homepage"
+  },
+  "newsSection": {
+    "mainTitle": "Latest News and Upcoming Sales",
+    "countdown": {
+      "label": "Next Big Discount Starts:",
+      "loading": "Loading countdown..."
+    },
+    "articles": [
+      {
+        "title": "Welcome to StyleSync Georgia!",
+        "paragraph": "We are preparing for our first big sale and exciting gifts. Stay with us and follow us on Instagram for updates!"
+      },
+      {
+        "title": "Giveaway Coming Soon!",
+        "paragraph": "We want to thank our early supporters! Keep an eye on the website for details on upcoming gifts and contests."
+      }
+    ]
+  },
+  "aboutPage": {
+    "title": "About StyleSync Georgia",
+    "description": "StyleSync was founded at the end of 2024 by two students. We strive to offer customers a unique, high-quality product that matches their style and taste. Orders are processed via Instagram direct messages — quickly and personally.",
+    "contactSection": {
+      "title": "Contact",
+      "contactText": "If you have questions or want to collaborate, our door is always open for you!",
+      "form": {
+        "nameLabel": "Name",
+        "namePlaceholder": "Enter your name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "Enter your email",
+        "messageLabel": "Message",
+        "messagePlaceholder": "Write your message...",
+        "submitBtn": "Send Message"
+      }
+    }
+  },
+  "productPage": {
+    "sizesLabel": "Sizes:",
+    "orderText": "To order this item, send us a message on Instagram 👇",
+    "orderBtn": "DM on Instagram",
+    "orderHint": "Tip: To speed up processing, please include the product name, size, and color in your direct message."
+  }
+}

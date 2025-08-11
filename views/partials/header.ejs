@@ -31,10 +31,22 @@
 
       <div class="nav_ig">
         <nav class="nav" role="navigation" aria-label="Primary navigation">
-          <a href="/" class="nav-link">Home</a>
-          <a href="/news" class="nav-link">News</a>
-          <a href="/about" class="nav-link">About</a>
+          <a href="/" class="nav-link"><%= t.nav.home %></a>
+          <a href="/news" class="nav-link"><%= t.nav.news %></a>
+          <a href="/about" class="nav-link"><%= t.nav.about %></a>
         </nav>
+        <!-- Language toggle -->
+        <div class="lang-switch">
+          <% if (lang === 'ka') { %>
+            <a href="/lang/en">
+              <img src="/images/en-flag.png" alt="English" width="24">
+            </a>
+          <% } else { %>
+            <a href="/lang/ka">
+              <img src="/images/ka-flag.png" alt="Georgian" width="24">
+            </a>
+          <% } %>
+        </div>
         <a
           class="ig-btn btn"
           href="<%= INSTAGRAM_URL %>"

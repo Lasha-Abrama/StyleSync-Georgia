@@ -5,7 +5,8 @@
     "category": "jackets",
     "slug": "carhartt-detroit-jacket",
     "price": 149,
-    "description": "✨ ერთ-ერთი ყველაზე დახვეწილი და გამორჩეული ქურთუკი✨",
+    "description_ka": "✨ ერთ-ერთი ყველაზე დახვეწილი და გამორჩეული ქურთუკი✨",
+    "description_en": "✨ One of the most refined and distinctive jackets ✨",    
     "sizes": ["M", "L", "XL"],
     "images": [
       "/images/Carhartt_Detroit_Jacket1.png",
@@ -22,7 +23,8 @@
     "category": "jackets",
     "slug": "stussy-ripstop-jacket",
     "price": 139,
-    "description": "მსუბუქი, თბილი და იდეალური მათთვის, ვისაც სურს შეინარჩუნოს სითბო და ამავდროულად იმიჯი ცივ ზამთარში ❄️ 🔥",
+    "description_ka": "მსუბუქი, თბილი და იდეალური მათთვის, ვისაც სურს შეინარჩუნოს სითბო და ამავდროულად იმიჯი ცივ ზამთარში ❄️ 🔥",
+    "description_en": "Lightweight, warm, and perfect for those who want to stay warm while maintaining style in the cold winter ❄️ 🔥",    
     "sizes": ["S", "M", "L", "XL"],
     "images": [
       "/images/Stussy_Puffer1.png",
@@ -36,7 +38,8 @@
     "category": "jackets",
     "slug": "corteiz-windbreaker",
     "price": 99,
-    "description": "მსუბუქი, წყალგამძლე ქურთუკი მაქსიმალური კომფორტისა და დაცვისთვის ნებისმიერ ამინდში🌬️ ",
+    "description_ka": "მსუბუქი, წყალგამძლე ქურთუკი მაქსიმალური კომფორტისა და დაცვისთვის ნებისმიერ ამინდში🌬️ ",
+    "description_en": "Lightweight, waterproof jacket for maximum comfort and protection in any weather 🌬️",    
     "sizes": ["M", "L", "XL", "2XL"],
     "images": [
       "/images/Corteiz_Windbreaker1.JPG",
@@ -57,7 +60,8 @@
     "category": "shirts",
     "slug": "1998-brazil-national-home-jersey",
     "price": 59,
-    "description": "🇧🇷ფეხბურთის ისტორიაში ერთ-ერთი ყველაზე ლამაზი და გამორჩეული ფორმა ლეგენდარული დიზაინით🏆✨",
+    "description_ka": "🇧🇷ფეხბურთის ისტორიაში ერთ-ერთი ყველაზე ლამაზი და გამორჩეული ფორმა ლეგენდარული დიზაინით🏆✨",
+    "description_en": "🇧🇷 One of the most beautiful and iconic football jerseys in history with a legendary design 🏆✨",    
     "sizes": ["S", "M", "L", "XL"],
     "images": [
       "/images/Brazil_Jersey_1998.png",
@@ -71,7 +75,8 @@
     "category": "shirts",
     "slug": "carhartt-button-up",
     "price": 74,
-    "description": "Carhartt-ის ღილებიანი პერანგი 👔 — მინიმალისტური დიზაინი ✨ და მაქსიმალური კომფორტი 😌",
+    "description_ka": "Carhartt-ის ღილებიანი პერანგი 👔 — მინიმალისტური დიზაინი ✨ და მაქსიმალური კომფორტი 😌",
+    "description_en": "Carhartt button-up shirt 👔 — minimalist design ✨ and maximum comfort 😌",    
     "sizes": ["M", "L", "XL", "2XL", "3XL"],
     "images": [
       "/images/Carhartt_ButtonUp1.JPG",
@@ -88,7 +93,8 @@
     "category": "shirts",
     "slug": "carhartt-wip-always-tee",
     "price": 49,
-    "description": "Carhartt-ის მაისური 👕 - იდეალური როგორც ყოველდღიურად ჩასაცმელად, ისე ურბანული სტილის ხაზგასასმელად 🏙️🔥 ",
+    "description_ka": "Carhartt-ის მაისური 👕 - იდეალური როგორც ყოველდღიურად ჩასაცმელად, ისე ურბანული სტილის ხაზგასასმელად 🏙️🔥 ",
+    "description_en": "Carhartt t-shirt 👕 - perfect both for everyday wear and to emphasize urban style 🏙️🔥",    
     "sizes": ["S", "M", "L", "XL"],
     "images": [
       "/images/Carhartt_WIP_Always1.JPG",
@@ -103,7 +109,8 @@
     "category": "headwear",
     "slug": "misprized-major-head-trauma-cap",
     "price": 29,
-    "description": "🧢 უნიკალური და ყველასგან განსხვავებული დიზაინის მქონე კეპი 🔫💥",
+    "description_ka": "🧢 უნიკალური და ყველასგან განსხვავებული დიზაინის მქონე კეპი 🔫💥",
+    "description_en": "🧢 Unique cap with a design different from everyone else 🔫💥",    
     "sizes": ["One size"],
     "images": [
       "/images/Bullet_Cap.png",
@@ -117,7 +124,8 @@
     "category": "headwear",
     "slug": "arc'teryx-bird-head-beanie",
     "price": 23,
-    "description": "თბილი, ელასტიური და მოდური ქუდი ზამთრის დღეებისთვის ❄️🧢",
+    "description_ka": "თბილი, ელასტიური და მოდური ქუდი ზამთრის დღეებისთვის ❄️🧢",
+    "description_en": "Warm, stretchy, and fashionable hat for winter days ❄️🧢",    
     "sizes": ["One size"],
     "images": [
       "/images/Arcteryx_Bird_Head_Beanie1.JPG",
@@ -142,7 +150,8 @@
     "category": "headwear",
     "slug": "god's-favorite-cap",
     "price": 24,
-    "description": "უნიკალური დიზაინის მქონე კეპი მხოლოდ ღმერთის ფავორიტებისთვის 👑🧢✨",
+    "description_ka": "უნიკალური დიზაინის მქონე კეპი მხოლოდ ღმერთის ფავორიტებისთვის 👑🧢✨",
+    "description_en": "Unique cap design only for God’s favorites 👑🧢✨",
     "sizes": ["One size"],
     "images": [
       "/images/Gods_Favorite_Cap1.JPG",
@@ -159,7 +168,8 @@
     "category": "sweaters",
     "slug": "broken-planet-sweatshirt",
     "price": 79,
-    "description": "რბილი, კომფორტული და თბილი სვიტრი ყოველდღიური ჩაცმულობისთვის🌍🔥 ",
+    "description_ka": "რბილი, კომფორტული და თბილი სვიტრი ყოველდღიური ჩაცმულობისთვის🌍🔥 ",
+    "description_en": "Soft, comfortable, and warm sweatshirt for everyday wear 🌍🔥",    
     "sizes": ["S", "M", "L", "XL"],
     "images": [
       "/images/Broken_Planet_Sweatshirt1.JPG",
@@ -170,12 +180,13 @@
     ]
   },
   {
-    "id": 14,
+    "id": 11,
     "title": "Broken Planet Hoodie",
     "category": "sweaters",
     "slug": "broken-planet-hoodie",
     "price": 69,
-    "description": "თბილი, კომპორტული და იმავდროულად კრეატიული დიზაინის მქონე ჰუდი 🌍🔥 ",
+    "description_ka": "თბილი, კომპორტული და იმავდროულად კრეატიული დიზაინის მქონე ჰუდი 🌍🔥 ",
+    "description_en": "Warm, comfortable, and at the same time creatively designed hoodie 🌍🔥",    
     "sizes": ["S", "M", "L", "XL"],
     "images": [
       "/images/Broken_Planet_Hoodie1.JPG",
@@ -190,12 +201,13 @@
     ]
   },
   {
-    "id": 15,
+    "id": 12,
     "title": "Stüssy x CPFM Heart Hoodie",
     "category": "sweaters",
     "slug": "stussy-cpfm-heart-hoodie",
     "price": 69,
-    "description": "ექსკლუზიური streetwear კოლაბორაცია, რომელიც აერთიანებს თამამ სტილსა და პრემიუმ ხარიხს ❤️‍🔥🖤. ",
+    "description_ka": "ექსკლუზიური streetwear კოლაბორაცია, რომელიც აერთიანებს თამამ სტილსა და პრემიუმ ხარიხს ❤️‍🔥🖤. ",
+    "description_en": "Exclusive streetwear collaboration combining bold style and premium quality ❤️‍🔥🖤.",    
     "sizes": ["M", "L", "XL"],
     "images": [
       "/images/Stussy_CPFM_Heart_Hoodie1.JPG",
@@ -206,12 +218,13 @@
     ]
   },
   {
-    "id": 16,
+    "id": 13,
     "title": "Stüssy Stock Sweater",
     "category": "sweaters",
     "slug": "stussy-stock-sweater",
     "price": 74,
-    "description": "მარტივი დიზაინის მქონე სვიტერი 🧥 - გრილი, მოდური და პრემიუმ ხარისხი ⚡✨",
+    "description_ka": "მარტივი დიზაინის მქონე სვიტერი 🧥 - გრილი, მოდური და პრემიუმ ხარისხი ⚡✨",
+    "description_en": "Simple design sweater 🧥 - cool, fashionable, and premium quality ⚡✨",    
     "sizes": ["S", "M", "L", "XL"],
     "images": [
       "/images/Stussy_Stock_Sweater1.JPG",
@@ -222,12 +235,13 @@
     ]
   },
   {
-    "id": 11,
+    "id": 14,
     "title": "Lightning McQueen Crocs",
     "category": "shoes",
     "slug": "lightning-mcQueen-crocs",
     "price": 64,
-    "description": "Lightning McQueen-ის კროქსები 🚀 — კომფორტის მოყვარული გულწრფელი ფანებისთვის 🚗 ",
+    "description_ka": "Lightning McQueen-ის კროქსები 🚀 — კომფორტის მოყვარული გულწრფელი ფანებისთვის 🚗 ",
+    "description_en": "Lightning McQueen Crocs 🚀 — for comfort-loving genuine fans 🚗",    
     "sizes": [
       "36-36.5",
       "36.5-37",
@@ -245,12 +259,13 @@
     ]
   },
   {
-    "id": 12,
+    "id": 15,
     "title": "Mike Wazowski Crocs",
     "category": "shoes",
     "slug": "mike-wazovski-crocs",
     "price": 54,
-    "description": "სახალისო დიზაინის კროქსი 👁️ - გამოიჩეული კომფორტით, სიმსუბუქითა და გამძლეობით ✨👟",
+    "description_ka": "სახალისო დიზაინის კროქსი 👁️ - გამოიჩეული კომფორტით, სიმსუბუქითა და გამძლეობით ✨👟",
+    "description_en": "Fun design Crocs 👁️ - distinguished by comfort, lightness, and durability ✨👟",    
     "sizes": [
       "30",
       "31",
@@ -274,12 +289,13 @@
     ]
   },
   {
-    "id": 13,
+    "id": 16,
     "title": "Tow Mater Crocs",
     "category": "shoes",
     "slug": "tow-mater-crocs",
     "price": 84,
-    "description": "კომფორტული Tow Mater-ის კროქსი ყველა ავტომობილის მოყვარულისთვის, იდეალურია ყოველდღიურობისთვის 🛻✨",
+    "description_ka": "კომფორტული Tow Mater-ის კროქსი ყველა ავტომობილის მოყვარულისთვის, იდეალურია ყოველდღიურობისთვის 🛻✨",
+    "description_en": "Comfortable Tow Mater Crocs for all car lovers, perfect for everyday use 🛻✨",    
     "sizes": [
       "36-37",
       "37-38",

@@ -8,29 +8,31 @@
         <div class="slide-text">
           <h2><%= product.title %></h2>
           <p>₾<%= product.price %></p>
-          <a href="/product/<%= product.id %>" class="btn">ახლავე შეძენა</a>
-        </div>
+          <a href="/product/<%= product.slug %>" class="btn"><%= t.hero.buyNow %></a>        </div>
       </div>
       <% }) %>
     </div>
-    <a href="#products" class="btn btn-scroll">კოლექციის დათვალიერება</a>
+    <a href="#filter" class="btn btn-scroll"><%= t.hero.viewCollection %></a>
   </section>
 
   <section id="filter" class="filter-bar">
-    <button class="filter-btn active" data-category="all">ყველა</button>
-    <button class="filter-btn" data-category="jackets">ქურთუკები</button>
-    <button class="filter-btn" data-category="shirts">მაისურები / პერანგები</button>
-    <button class="filter-btn" data-category="sweaters">ჰუდები / სვიტერები</button>
-    <button class="filter-btn" data-category="headwear">კეპები / ქუდები</button>
-    <button class="filter-btn" data-category="shoes">ფეხსაცმელები</button>
+    <button id="filter-toggle" class="filter-btn">ფილტრი ▾</button>
+    <div id="filter-menu" class="filter-menu">
+      <button class="filter-btn active" data-category="all"><%= t.filter.all %></button>
+      <button class="filter-btn" data-category="jackets"><%= t.filter.jackets %></button>
+      <button class="filter-btn" data-category="shirts"><%= t.filter.shirts %></button>
+      <button class="filter-btn" data-category="sweaters"><%= t.filter.sweaters %></button>
+      <button class="filter-btn" data-category="headwear"><%= t.filter.headwear %></button>
+      <button class="filter-btn" data-category="shoes"><%= t.filter.shoes %></button>
+    </div>    
   </section>
 
-  <section id="products" class="products-grid">
+  <section id="products" class="products-flex">
     <% if (products.length === 0) { %>
     <p class="muted">No products yet. Add items to data/products.json.</p>
     <% } %> <% products.forEach(product => { %>
     <article class="product-card" data-category="<%= product.category %>">
-      <a href="/product/<%= product.id %>">
+      <a href="/product/<%= product.slug %>">
         <div class="img-wrap">
           <img
             src="<%= product.images[0] || '/placeholder.jpg' %>"

@@ -27,7 +27,7 @@
 
         <% if (product.sizes && product.sizes.length) { %>
         <div class="sizes">
-          <label>ზომები:</label>
+          <label><%= t.productPage.sizesLabel %></label>
           <div class="sizes-list">
             <% product.sizes.forEach(s => { %>
             <button class="size-btn"><%= s %></button>
@@ -37,20 +37,14 @@
         <% } %>
 
         <div class="order-block">
-          <p class="order-text">
-            ამ ნივთის შესაკვეთად, მოგვწერეთ ინსტაგრამზე 👇
-          </p>
+          <h4 class="order-text"><%= t.productPage.orderText %></h4>
           <a
             class="btn btn-order"
             href="<%= INSTAGRAM_URL %>"
             target="_blank"
             rel="noopener"
-            >DM on Instagram</a
-          >
-          <small class="muted"
-            >რჩევა: დამუშავების დაჩქარებისთვის, თქვენს პირად შეტყობინებაში
-            მიუთითეთ პროდუქტის დასახელება, ზომა და ფერი.</small
-          >
+          ><%= t.productPage.orderBtn %></a>
+          <small class="muted"><%= t.productPage.orderHint %></small>
         </div>
       </div>
     </section>

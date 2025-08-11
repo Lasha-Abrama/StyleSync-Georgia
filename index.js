@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import nodemailer from 'nodemailer';
+import cookieParser from 'cookie-parser';
 
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
@@ -15,6 +16,7 @@ const INSTAGRAM_URL = process.env.INSTAGRAM_URL || 'https://www.instagram.com/st
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -35,15 +37,36 @@ app.use((req, res, next) => {
   next();
 });
 
+// Language middleware
+app.use((req, res, next) => {
+  const lang = req.cookies.lang || 'ka';
+  const localePath = path.join(__dirname, 'locales', `${lang}.json`);
+  try {
+    res.locals.t = JSON.parse(fs.readFileSync(localePath, 'utf8'));
+  } catch {
+    res.locals.t = {};
+  }
+  res.locals.lang = lang;
+  next();
+});
+
 app.get('/', (req, res) => {
   const products = loadProducts();
   res.render('index', { products });
 });
 
-app.get('/product/:id', (req, res) => {
+app.get('/product/:slug', (req, res) => {
   const products = loadProducts();
-  const product = products.find(p => p.id === parseInt(req.params.id));
+  const product = products.find(p => p.slug === req.params.slug);
   if (!product) return res.status(404).render('404');
+
+  const lang = req.cookies.lang || 'ka';
+  if (lang === 'en' && product.description_en) {
+    product.description = product.description_en;
+  } else {
+    product.description = product.description_ka;
+  }
+
   res.render('product', { product });
 });
 
@@ -52,6 +75,14 @@ app.get('/news', (req, res) => {
 });
 
 app.get('/about', (req, res) => res.render('about'));
+
+// Language switch route
+app.get('/lang/:lang', (req, res) => {
+  const selectedLang = req.params.lang;
+  if (!['en', 'ka'].includes(selectedLang)) return res.redirect('back');
+  res.cookie('lang', selectedLang, { maxAge: 1000 * 60 * 60 * 24 * 30 });
+  res.redirect('back');
+});
 
 // 📨 Contact form POST route
 app.post('/contact', async (req, res) => {

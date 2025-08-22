@@ -44,6 +44,69 @@
         </div>
         <% } %>
 
+        <!-- AI Outfit Generation Section -->
+        <div class="outfit-generation">
+          <div class="outfit-header">
+            <h4>🤖 AI Style Assistant</h4>
+            <p>Generate a complete outfit with this item</p>
+          </div>
+
+          <div class="outfit-controls">
+            <div
+              class="season-toggle"
+              role="tablist"
+              aria-label="Season selector"
+            >
+              <button class="season-btn" data-season="spring" role="tab">
+                Spring
+              </button>
+              <button class="season-btn" data-season="summer" role="tab">
+                Summer
+              </button>
+              <button class="season-btn" data-season="fall" role="tab">
+                Fall
+              </button>
+              <button class="season-btn" data-season="winter" role="tab">
+                Winter
+              </button>
+            </div>
+
+            <div class="style-select-wrap">
+              <label class="style-label" for="outfit-style">Style</label>
+              <select id="outfit-style" class="outfit-style-select">
+                <option value="casual">Casual</option>
+                <option value="streetwear">Streetwear</option>
+                <option value="sporty">Sporty</option>
+              </select>
+            </div>
+
+            <button
+              id="generate-outfit-btn"
+              class="btn btn-outfit primary"
+              onclick="generateOutfit()"
+            >
+              <span class="btn-icon">✨</span>
+              <span>Generate Outfit</span>
+            </button>
+          </div>
+
+          <div id="outfit-loading" class="outfit-loading" style="display: none">
+            <div class="loading-spinner"></div>
+            <p>Creating your perfect outfit...</p>
+          </div>
+
+          <div id="outfit-result" class="outfit-result" style="display: none">
+            <h5>✨ Your AI-Generated Outfit</h5>
+            <div id="outfit-items" class="outfit-items"></div>
+            <div id="outfit-tips" class="outfit-tips"></div>
+            <div id="outfit-total" class="outfit-total"></div>
+            <div id="outfit-note" class="outfit-note"></div>
+            <button class="btn btn-outfit" onclick="generateOutfit()">
+              🔄 Generate Another
+            </button>
+          </div>
+        </div>
+
         <div class="order-block">
           <h4 class="order-text"><%= t.productPage.orderText %></h4>
           <a
@@ -59,4 +122,129 @@
     </section>
   </section>
 </main>
+
+<script>
+  // Season toggle behavior
+  (function() {
+    const seasonButtons = document.querySelectorAll('.season-btn');
+    // default: activate Spring
+    if (seasonButtons[0]) {
+      seasonButtons[0].classList.add('active');
+      seasonButtons[0].setAttribute('aria-selected','true');
+    }
+    seasonButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        seasonButtons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+      });
+    });
+  })();
+
+  // Outfit generation functionality
+  async function generateOutfit() {
+    const style = document.getElementById('outfit-style').value;
+    const loading = document.getElementById('outfit-loading');
+    const result = document.getElementById('outfit-result');
+    const items = document.getElementById('outfit-items');
+    const tips = document.getElementById('outfit-tips');
+    const total = document.getElementById('outfit-total');
+    const note = document.getElementById('outfit-note');
+    const activeSeasonBtn = document.querySelector('.season-btn.active');
+    const season = activeSeasonBtn ? activeSeasonBtn.getAttribute('data-season') : 'spring';
+
+    // Show loading
+    loading.style.display = 'block';
+    result.style.display = 'none';
+
+    try {
+      const response = await fetch('/api/generate-outfit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: <%= product.id %>,
+          style: style,
+          season: season,
+          language: '<%= lang %>'
+        })
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        // Display outfit items
+        let itemsHtml = '';
+        Object.entries(data.outfit.outfit).forEach(([category, item]) => {
+          if (item && typeof item === 'object' && item.name) {
+            itemsHtml += `
+              <div class="outfit-item">
+                <img src="${item.image}" alt="${item.name}" class="outfit-item-image">
+                <div class="outfit-item-info">
+                  <h6>${item.name}</h6>
+                  <p class="outfit-item-price">₾${item.price}</p>
+                  <a href="/product/${item.slug}" class="outfit-item-link">View Product</a>
+                </div>
+              </div>
+            `;
+          }
+        });
+
+        items.innerHTML = itemsHtml;
+
+        // Display styling tips
+        if (data.styling_tips || data.outfit.styling_tips) {
+          const tipsText = data.styling_tips || data.outfit.styling_tips;
+          tips.innerHTML = `<p><strong>💡 Styling Tips:</strong> ${tipsText}</p>`;
+        } else {
+          tips.innerHTML = '';
+        }
+
+        // Display total price
+        let totalPrice = 0;
+        Object.values(data.outfit.outfit).forEach(item => {
+          if (item && typeof item === 'object' && item.price) {
+            totalPrice += item.price;
+          }
+        });
+
+        total.innerHTML = totalPrice > 0 ? `<p><strong>💰 Total Outfit Price: ₾${totalPrice}</strong></p>` : '';
+
+        // Missing categories note
+        if (data.outfit.missing_categories && data.outfit.missing_categories.length) {
+          note.innerHTML = `<p class="muted">Some categories are unavailable right now: ${data.outfit.missing_categories.join(', ')}.</p>`;
+        } else {
+          note.innerHTML = '';
+        }
+
+        result.style.display = 'block';
+      } else {
+        alert(data.message || 'Failed to generate outfit');
+      }
+    } catch (error) {
+      console.error('Error generating outfit:', error);
+      alert('Failed to generate outfit. Please try again.');
+    } finally {
+      loading.style.display = 'none';
+    }
+  }
+
+  // Initialize outfit generation on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Set welcome message based on language
+    const lang = '<%= lang %>';
+    const welcomeMsg = document.getElementById('welcome-message');
+    if (welcomeMsg && lang === 'en') {
+      welcomeMsg.textContent = '👋 Hello! How can we help you?';
+    }
+
+    // Set placeholder based on language
+    const inputField = document.getElementById('chatbot-input-field');
+    if (inputField && lang === 'en') {
+      inputField.placeholder = 'Type your question...';
+    }
+  });
+</script>
+
 <%- include('partials/footer') %>

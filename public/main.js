@@ -32,8 +32,8 @@
 
       const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
+      const minutes = Math.floor((diff / 60) % 60);
+      const seconds = Math.floor(diff % 60);
 
       countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s`;
     }
@@ -41,7 +41,6 @@
     updateCountdown();
     const intervalId = setInterval(updateCountdown, 1000);
   }
-  valId = setInterval(updateCountdown, 1000);
 
   const filterToggle = document.getElementById("filter-toggle");
   const filterMenu = document.getElementById("filter-menu");
@@ -154,6 +153,7 @@
       img.classList.add("active");
     });
   });
+
   // --- NEW: Hero slider ---
   const slides = document.querySelectorAll(".slide");
   let currentSlide = 0;
@@ -186,18 +186,217 @@
   }
 
   // Event listeners for arrows
-  document.getElementById("slider-next").addEventListener("click", () => {
-    stopAutoSlide();
-    nextSlide();
-    startAutoSlide();
-  });
+  const sliderNext = document.getElementById("slider-next");
+  const sliderPrev = document.getElementById("slider-prev");
 
-  document.getElementById("slider-prev").addEventListener("click", () => {
-    stopAutoSlide();
-    prevSlide();
-    startAutoSlide();
-  });
+  if (sliderNext) {
+    sliderNext.addEventListener("click", () => {
+      stopAutoSlide();
+      nextSlide();
+      startAutoSlide();
+    });
+  }
+
+  if (sliderPrev) {
+    sliderPrev.addEventListener("click", () => {
+      stopAutoSlide();
+      prevSlide();
+      startAutoSlide();
+    });
+  }
 
   // Start the slideshow
-  startAutoSlide();
+  if (slides.length > 0) {
+    startAutoSlide();
+  }
 })();
+
+// 🤖 Chatbot functionality
+let currentLanguage = "ka";
+
+// Global event delegation for quick replies
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".qr-chip");
+  if (!btn) return;
+  e.preventDefault();
+  const input = document.getElementById("chatbot-input-field");
+  if (!input) return;
+  input.value = btn.getAttribute("data-text");
+  sendChatbotMessage();
+});
+
+function scrollChatToBottom() {
+  const messagesContainer = document.getElementById("chatbot-messages");
+  if (messagesContainer)
+    messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Render quick replies (replaces previous)
+function renderQuickReplies(suggestions = []) {
+  const messagesContainer = document.getElementById("chatbot-messages");
+  if (!messagesContainer) return;
+
+  // Remove existing quick replies
+  const existing = messagesContainer.querySelector(".quick-replies");
+  if (existing) existing.remove();
+
+  if (!suggestions.length) return;
+
+  const wrap = document.createElement("div");
+  wrap.className = "quick-replies";
+  wrap.innerHTML = suggestions
+    .map(
+      (s) =>
+        `<button class="qr-chip" type="button" data-text="${s}">${s}</button>`
+    )
+    .join("");
+  messagesContainer.appendChild(wrap);
+  scrollChatToBottom();
+}
+
+// Open chatbot
+function openChatbot() {
+  const chatbot = document.getElementById("chatbot");
+  if (!chatbot) return;
+  chatbot.style.display = "flex";
+
+  setTimeout(() => {
+    const inputField = document.getElementById("chatbot-input-field");
+    if (inputField) inputField.focus();
+    scrollChatToBottom();
+  }, 100);
+
+  // Default quick replies
+  const suggestions =
+    currentLanguage === "ka"
+      ? ["მიწოდება", "ზომების ცხრილი", "გადახდის მეთოდები", "აგენტთან საუბარი"]
+      : ["Shipping", "Size guide", "Payment options", "Talk to agent"];
+  renderQuickReplies(suggestions);
+}
+
+// Modal open/close
+function openCloseConfirm() {
+  const modal = document.getElementById("chatbot-close-modal");
+  if (modal) modal.style.display = "flex";
+}
+function confirmCloseChat() {
+  const modal = document.getElementById("chatbot-close-modal");
+  if (modal) modal.style.display = "none";
+  const chatbot = document.getElementById("chatbot");
+  if (chatbot) chatbot.style.display = "none";
+}
+function cancelCloseChat() {
+  const modal = document.getElementById("chatbot-close-modal");
+  if (modal) modal.style.display = "none";
+}
+function closeChatbot() {
+  openCloseConfirm();
+}
+
+// Send message
+async function sendChatbotMessage() {
+  const inputField = document.getElementById("chatbot-input-field");
+  if (!inputField) return;
+
+  const message = inputField.value.trim();
+  if (!message) return;
+
+  addMessage(message, "user");
+  inputField.value = "";
+  scrollChatToBottom();
+
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message, language: currentLanguage }),
+    });
+    const data = await res.json();
+
+    if (data.type === "fallback") {
+      const igUrl = (window && window.INSTAGRAM_URL) || "#";
+      const aboutUrl = "/about";
+      data.message =
+        currentLanguage === "ka"
+          ? `🤖 ბოდიში, ვერ ვუპასუხე. სცადეთ Instagram <a href="${igUrl}" target="_blank">აქ</a> ან <a href="${aboutUrl}">About page</a>.`
+          : `🤖 Sorry, I couldn't respond. Try Instagram <a href="${igUrl}" target="_blank">here</a> or <a href="${aboutUrl}">About page</a>.`;
+    }
+
+    addMessage(data.message, "bot", data.type);
+    scrollChatToBottom();
+
+    // Follow-up quick replies
+    const followUps =
+      currentLanguage === "ka"
+        ? ["მიწოდება", "დაბრუნება", "ზომების ცხრილი", "ინსტაგრამი"]
+        : ["Shipping", "Returns", "Size chart", "Instagram"];
+    renderQuickReplies(followUps);
+  } catch (err) {
+    console.error("Chat error:", err);
+    addMessage(
+      currentLanguage === "ka"
+        ? "ბოდიში, ვერ ვუპასუხე. სცადეთ მოგვიანებით."
+        : "Sorry, I couldn't respond. Please try again later.",
+      "bot",
+      "error"
+    );
+    scrollChatToBottom();
+  }
+}
+
+// Handle Enter key
+function handleChatbotKeyPress(event) {
+  if (event.key === "Enter") sendChatbotMessage();
+}
+
+// Add message to chat
+function addMessage(text, sender, type = "normal") {
+  const messagesContainer = document.getElementById("chatbot-messages");
+  if (!messagesContainer) return;
+
+  const messageDiv = document.createElement("div");
+  messageDiv.className = `message ${sender}-message`;
+
+  const now = new Date();
+  const timeString = now.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Asia/Tbilisi",
+  });
+
+  messageDiv.innerHTML = `
+    <div class="message-content">
+      <p>${text}</p>
+    </div>
+    <div class="message-time">${timeString}</div>
+  `;
+
+  messagesContainer.appendChild(messageDiv);
+  scrollChatToBottom();
+}
+
+// Update language
+function updateChatbotLanguage(lang) {
+  currentLanguage = lang;
+  const inputField = document.getElementById("chatbot-input-field");
+  const welcomeMessage = document.getElementById("welcome-message");
+
+  if (inputField)
+    inputField.placeholder =
+      lang === "en" ? "Type your question..." : "დაწერეთ თქვენი შეკითხვა...";
+  if (welcomeMessage)
+    welcomeMessage.textContent =
+      lang === "en"
+        ? "👋 Hello! How can we help you?"
+        : "👋 გამარჯობა! როგორ შეგვიძლია დაგეხმაროთ?";
+}
+
+// Language switch listener
+window.addEventListener("DOMContentLoaded", () => {
+  const langCookie = document.cookie
+    .split(";")
+    .find((c) => c.trim().startsWith("lang="));
+  if (langCookie) {
+    updateChatbotLanguage(langCookie.split("=")[1]);
+  }
+});

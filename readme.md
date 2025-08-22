@@ -57,3 +57,7 @@ PORT=3000
 INSTAGRAM_URL=https://www.instagram.com/stylesyncgeorgia/
 EMAIL_USER=your-email@gmail.com
 EMAIL_PASS=your-app-password
+
+## to see updated version StyleSync 2.0, go follow the link:
+
+Check out the live version: [[SETUP.md](https://github.com/Lasha-Abrama/StyleSync-Georgia/blob/main/SETUP.md)]

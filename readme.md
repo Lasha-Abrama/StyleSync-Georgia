@@ -15,7 +15,7 @@
 
 ## Demo
 
-Check out the live version: [[Your Live URL Here](https://stylesync-r0uv.onrender.com/)]
+Check out the live version: [[Your Live URL Here](https://stylesync-georgia.onrender.com/)]
 
 ---
 
